@@ -76,7 +76,23 @@ nav a {
 nav a:hover { color: var(--text); }
 
 /* Intro */
-.intro { padding: 4rem 0 3rem; }
+.intro {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 4rem 0 3rem;
+}
+.intro-text { flex: 1; min-width: 0; }
+.portrait {
+  flex: none;
+  width: 11rem;
+  height: auto;
+  aspect-ratio: 560 / 599;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-top: 0.4rem;
+}
 h1 {
   font-family: var(--serif);
   font-weight: 600;
@@ -147,9 +163,14 @@ h2 + h3 { margin-top: 0; }
   font-size: 0.85rem;
 }
 
+@media (max-width: 40rem) {
+  .intro { flex-direction: column; gap: 1.5rem; padding: 2.5rem 0 2rem; }
+  .portrait { width: 8.5rem; margin-top: 0; }
+}
+
 @media (max-width: 30rem) {
   nav { gap: 0.9rem; }
-  .intro { padding: 2.5rem 0 2rem; }
+  nav .ext { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
